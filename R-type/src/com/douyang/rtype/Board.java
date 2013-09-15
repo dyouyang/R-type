@@ -29,7 +29,7 @@ public class Board extends JPanel implements ActionListener {
 
 		setSize(Rtype.BOARD_WIDTH, Rtype.BOARD_HEIGHT);
 		inGame = true;
-		ship = new Ship();
+		ship = new Ship(40, 60);
 		initEnemies();
 		timer = new Timer(5, this);
 		timer.start();
@@ -41,7 +41,7 @@ public class Board extends JPanel implements ActionListener {
 		Random rand = new Random();
 		for (int i = 0; i < 10; i++) {
 			int spawnX = rand.nextInt(2000) + Rtype.BOARD_WIDTH;
-			int spawnY = rand.nextInt(Rtype.BOARD_HEIGHT-40) + 20;
+			int spawnY = rand.nextInt(Rtype.BOARD_HEIGHT - 40) + 20;
 			enemies.add(new Enemy(spawnX, spawnY));
 		}
 

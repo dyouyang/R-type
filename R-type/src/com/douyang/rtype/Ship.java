@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-public class Ship {
+public class Ship extends GameObject {
 
 	private static final int SHIP_SIZE = 20;
 
@@ -15,23 +15,19 @@ public class Ship {
 
 	private int dx;
 	private int dy;
-	private int x;
-	private int y;
-	private int width, height;
-	private Image image;
 
 	private ArrayList<Missile> missiles;
 
-	public Ship() {
+	public Ship(int x, int y) {
+		super(x, y);
 		ImageIcon ii = new ImageIcon(this.getClass().getResource(shipRes));
 		image = ii.getImage();
 		width = image.getWidth(null);
 		height = image.getHeight(null);
+		visible = true;
 
 		missiles = new ArrayList<Missile>();
 
-		x = 40;
-		y = 60;
 	}
 
 	public void move() {
@@ -49,24 +45,8 @@ public class Ship {
 		// y = Rtype.BOARD_WIDTH - SHIP_SIZE -1;
 	}
 
-	public int getX() {
-		return x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public Image getImage() {
-		return image;
-	}
-
 	public ArrayList<Missile> getMissiles() {
 		return missiles;
-	}
-
-	public Rectangle getBounds() {
-		return new Rectangle(x, y, width, height);
 	}
 
 	public void keyPressed(KeyEvent e) {

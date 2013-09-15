@@ -12,53 +12,22 @@ import javax.swing.ImageIcon;
  * @author yinglong
  * 
  */
-public class Missile {
-
-	private int x, y;
-	private Image image;
-	boolean visible;
+public class Missile extends GameObject {
 
 	private final int MISSILE_SPEED = 2;
-	private int width;
-	private int height;
 
 	/**
 	 * 
 	 */
 	public Missile(int x, int y) {
+		super(x, y);
 		ImageIcon ii = new ImageIcon(this.getClass().getResource("missile.png"));
 		image = ii.getImage();
 		width = image.getWidth(null);
 		height = image.getHeight(null);
-		
+
 		visible = true;
-		this.x = x;
-		this.y = y;
 
-	}
-
-	public Image getImage() {
-		return image;
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public boolean isVisible() {
-		return visible;
-	}
-	
-	public void setVisible(boolean visible) {
-		this.visible = visible;
-	}
-
-	public Rectangle getBounds() {
-		return new Rectangle(x, y, width, height);
 	}
 
 	public void move() {
