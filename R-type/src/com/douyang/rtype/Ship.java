@@ -1,23 +1,39 @@
 package com.douyang.rtype;
 
-import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
+/**
+ * @author yinglong
+ * 
+ *         The player controlled ship. Responds to key presses (up, down, left,
+ *         right movement, and spacebar to fire missiles)
+ * 
+ */
 public class Ship extends GameObject {
 
 	private static final int SHIP_SIZE = 20;
 
 	private String shipRes = "craft.png";
 
+	// delta variables, set to -1,0,or 1 depending on arrow key pressed
 	private int dx;
 	private int dy;
 
+	// missiles that are fired are stored here until collision or off-screen
 	private ArrayList<Missile> missiles;
 
+	/**
+	 * @param x
+	 *            x-position of ship
+	 * @param y
+	 *            y-position of ship
+	 * 
+	 *            Initializes the ship and an array of missiles that the ship
+	 *            will fire
+	 */
 	public Ship(int x, int y) {
 		super(x, y);
 		ImageIcon ii = new ImageIcon(this.getClass().getResource(shipRes));
@@ -30,6 +46,14 @@ public class Ship extends GameObject {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.douyang.rtype.GameObject#move()
+	 * 
+	 * Add the current deltas for movement, and stop the ship from moving out of
+	 * bounds
+	 */
 	public void move() {
 
 		x += dx;
@@ -71,6 +95,7 @@ public class Ship extends GameObject {
 		}
 	}
 
+	// FIRE ZE MISSILES
 	public void fire() {
 		missiles.add(new Missile(x + SHIP_SIZE, y + SHIP_SIZE / 2));
 

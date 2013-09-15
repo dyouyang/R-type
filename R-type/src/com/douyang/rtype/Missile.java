@@ -3,21 +3,17 @@
  */
 package com.douyang.rtype;
 
-import java.awt.Image;
-import java.awt.Rectangle;
-
 import javax.swing.ImageIcon;
 
 /**
- * @author yinglong
- * 
+ * @author yinglong Missiles are fired from the player ship and move right
  */
 public class Missile extends GameObject {
 
 	private final int MISSILE_SPEED = 2;
 
 	/**
-	 * 
+	 * Generate a new missile
 	 */
 	public Missile(int x, int y) {
 		super(x, y);
@@ -30,6 +26,14 @@ public class Missile extends GameObject {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.douyang.rtype.GameObject#move()
+	 * 
+	 * Missiles will move right until they are off screen (or collide with an
+	 * enemy)
+	 */
 	public void move() {
 		x += MISSILE_SPEED;
 		if (x >= Rtype.BOARD_WIDTH)

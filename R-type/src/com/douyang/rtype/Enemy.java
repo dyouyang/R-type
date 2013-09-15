@@ -1,10 +1,13 @@
 package com.douyang.rtype;
 
-import java.awt.Image;
-import java.awt.Rectangle;
-
 import javax.swing.ImageIcon;
 
+/**
+ * @author yinglong
+ * 
+ *         Enemies will spawn and travel left towards the player. They can be
+ *         destroyed by missiles, and will destroy the player if collided
+ */
 public class Enemy extends GameObject {
 
 	private String enemyRes = "alien.png";
@@ -20,6 +23,14 @@ public class Enemy extends GameObject {
 		visible = true;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.douyang.rtype.GameObject#move()
+	 * 
+	 * Enemies that are not destroyed will move back to the right of the board
+	 * to attack the player again
+	 */
 	public void move() {
 		if (x < 0)
 			x = Rtype.BOARD_WIDTH;

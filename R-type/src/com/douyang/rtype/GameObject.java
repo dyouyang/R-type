@@ -3,6 +3,15 @@ package com.douyang.rtype;
 import java.awt.Image;
 import java.awt.Rectangle;
 
+/**
+ * @author yinglong
+ * 
+ *         Base class for all game objects.
+ * 
+ *         Game objects must hold position, size, visibility, and sprite
+ *         information. Additionally, they must implement a move function.
+ */
+
 public abstract class GameObject {
 
 	protected int x, y, width, height;
@@ -15,7 +24,7 @@ public abstract class GameObject {
 	}
 
 	public abstract void move();
-	
+
 	public int getX() {
 		return x;
 	}
@@ -44,6 +53,11 @@ public abstract class GameObject {
 		return image;
 	}
 
+	/**
+	 * @return the bounds of this game object
+	 * 
+	 *         Used for collision detection
+	 */
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, width, height);
 	}

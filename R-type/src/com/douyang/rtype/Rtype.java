@@ -2,11 +2,20 @@ package com.douyang.rtype;
 
 import javax.swing.JFrame;
 
+/**
+ * @author yinglong
+ * Main class, sets up game frame
+ */
 public class Rtype extends JFrame{
 
 	static final int BOARD_WIDTH = 400;
 	static final int BOARD_HEIGHT = 400;
 	
+	/**
+	 * Game constructor
+	 * 
+	 * Add a new game board and game window settings
+	 */
 	public Rtype()
 	{
 		add(new Board());
