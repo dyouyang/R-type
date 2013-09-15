@@ -22,6 +22,7 @@ import javax.swing.Timer;
  */
 public class Board extends JPanel implements ActionListener {
 
+	private static final int NUM_ENEMIES = 50;
 	private Ship ship;
 	private Timer timer;
 	private ArrayList<Enemy> enemies;
@@ -56,7 +57,7 @@ public class Board extends JPanel implements ActionListener {
 	private void initEnemies() {
 		enemies = new ArrayList<Enemy>();
 		Random rand = new Random();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < NUM_ENEMIES; i++) {
 			int spawnX = rand.nextInt(2000) + Rtype.BOARD_WIDTH;
 			int spawnY = rand.nextInt(Rtype.BOARD_HEIGHT - 40) + 20;
 			enemies.add(new Enemy(spawnX, spawnY));

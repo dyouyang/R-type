@@ -25,6 +25,8 @@ public class Ship extends GameObject {
 	// missiles that are fired are stored here until collision or off-screen
 	private ArrayList<Missile> missiles;
 
+	private boolean notHeld;
+
 	/**
 	 * @param x
 	 *            x-position of ship
@@ -42,6 +44,7 @@ public class Ship extends GameObject {
 		height = image.getHeight(null);
 		visible = true;
 
+		notHeld = true;
 		missiles = new ArrayList<Missile>();
 
 	}
@@ -90,7 +93,10 @@ public class Ship extends GameObject {
 			dy = 1;
 			break;
 		case KeyEvent.VK_SPACE:
-			fire();
+			if(notHeld){
+				fire();
+				notHeld = false;
+			}
 			break;
 		}
 	}
@@ -116,6 +122,9 @@ public class Ship extends GameObject {
 			break;
 		case KeyEvent.VK_DOWN:
 			dy = 0;
+			break;
+		case KeyEvent.VK_SPACE:
+			notHeld = true;
 			break;
 		}
 	}
